@@ -17,11 +17,15 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
         doGet(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         ServletUtils.Setting(request, response);
         JSONObject jsonObject = ServletUtils.getJSONObject(request);
         User user = new UserDaoImpl().queryUserByUsernamePassword(jsonObject.optString("username"),
