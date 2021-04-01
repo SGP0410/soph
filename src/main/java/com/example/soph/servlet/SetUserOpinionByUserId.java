@@ -25,7 +25,9 @@ public class SetUserOpinionByUserId extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtils.Setting(request, response);
         JSONObject jsonObject = ServletUtils.getJSONObject(request);
+
         UserOpinion userOpinion = new Gson().fromJson(jsonObject.toString() , UserOpinion.class);
+
         int i = new UserDaoImpl().addUserOpinion(userOpinion);
         JSONObject jsonObject1 = new JSONObject();
         ServletUtils.isOk(jsonObject1 , i == 1);
