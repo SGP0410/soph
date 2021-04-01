@@ -32,6 +32,7 @@ public class GetBus extends HttpServlet {
             JSONArray jsonArray = new JSONArray(busList);
             jsonObject.put("rows",jsonArray);
         }else {
+
             ServletUtils.isOk(jsonObject,false);
         }
         resp.getWriter().write(jsonObject.toString());
