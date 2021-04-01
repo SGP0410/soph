@@ -12,7 +12,6 @@ import java.util.List;
 
 public class HospitalDaoImpl extends BaseDao implements HospitalDao {
 
-
     @Override
     public List<Hospital_save> querySaveUserid(String userid) {
         String sql = "select * from hospital_save where userId = ?";

@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * 通过身份证号获取就诊卡
+ * {"cardId":"222231231"}
  */
 @WebServlet(name = "gethospital_idcard" ,value = "/gethospital_idcard")
 public class GetHospital_idcard extends HttpServlet {
@@ -46,7 +47,5 @@ public class GetHospital_idcard extends HttpServlet {
             ServletUtils.isOk(jsonObject1,false);
         }
         resp.getWriter().write(jsonObject1.toString());
-
-
     }
 }

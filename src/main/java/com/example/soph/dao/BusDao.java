@@ -19,4 +19,6 @@ public interface BusDao {
 
     public List<Bus_msg> queryLinesId(String linesId);
 
+    public Bus queryBusId(String id);
+
 }

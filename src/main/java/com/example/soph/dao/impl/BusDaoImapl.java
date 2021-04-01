@@ -33,4 +33,10 @@ public class BusDaoImapl extends BaseDao implements BusDao {
         return queryForList(Bus_msg.class,sql,linesId);
     }
 
+    @Override
+    public Bus queryBusId(String id) {
+        String sql = "select * from bus where linesId = ?";
+        return queryForOne(Bus.class,sql,id);
+    }
+
 }
