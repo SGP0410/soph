@@ -1,4 +1,4 @@
-package com.example.soph.dao.impl;
+package com.example.soph.dao;
 
 import com.example.soph.pojo.Hospital_msg;
 

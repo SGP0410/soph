@@ -28,6 +28,9 @@ public class GetActions_slide extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         if (slides != null){
             ServletUtils.isOk(jsonObject,true);
+            for (Actions_slide a:slides) {
+                a.setImg(ServletUtils.getImageUrl(req , a.getImg()));
+            }
             JSONArray jsonArray = new JSONArray(slides);
             jsonObject.put("rows",jsonArray);
         }else {

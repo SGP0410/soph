@@ -35,6 +35,9 @@ public class GetHospitalImg extends HttpServlet {
         if (msgs !=null){
             ServletUtils.isOk(jsonObject1,true);
             System.out.println(msgs.toString());
+            for (Hospital_msg h:msgs) {
+                h.setImgUrl(ServletUtils.getImageUrl(req , h.getImgUrl()));
+            }
             JSONArray jsonArray = new JSONArray(msgs);
             jsonObject1.put("rows",jsonArray);
         }else {

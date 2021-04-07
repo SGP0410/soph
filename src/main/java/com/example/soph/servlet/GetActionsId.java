@@ -30,6 +30,7 @@ public class GetActionsId extends HttpServlet {
         ServletUtils.Setting(req,resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
         Actions actions = new ActionsDaoImapl().queryListid(jsonObject.optString("id"));
+        actions.setImage(ServletUtils.getImageUrl(req , actions.getImage()));
         JSONObject jsonObject1 = new JSONObject(actions);
         if (actions != null){
             ServletUtils.isOk(jsonObject1,true);

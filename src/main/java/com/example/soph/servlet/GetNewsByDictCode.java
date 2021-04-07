@@ -25,6 +25,9 @@ public class GetNewsByDictCode extends HttpServlet {
         JSONObject jsonObject1 = new JSONObject();
         if (newsList != null){
             jsonObject1.put("total" , newsList.size());
+            for (News n:newsList) {
+                n.setImgUrl(ServletUtils.getImageUrl(request , n.getImgUrl()));
+            }
             jsonObject1.put("rows" , new JSONArray(newsList));
         }
         ServletUtils.isOk(jsonObject1 , newsList != null);

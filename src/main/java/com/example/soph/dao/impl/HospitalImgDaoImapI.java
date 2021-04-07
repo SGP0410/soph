@@ -1,7 +1,6 @@
 package com.example.soph.dao.impl;
 
-import com.example.soph.dao.HospitalDao;
-import com.example.soph.pojo.Hospital;
+import com.example.soph.dao.HospitalImgDao;
 import com.example.soph.pojo.Hospital_msg;
 
 import java.util.List;

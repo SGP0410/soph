@@ -24,6 +24,9 @@ public class GetRecommendService extends HttpServlet {
         JSONObject jsonObject1 = new JSONObject();
         if (services != null){
             jsonObject1.put("total" , services.size());
+            for (Service s:services) {
+                s.setImgUrl(ServletUtils.getImageUrl(request , s.getImgUrl()));
+            }
             jsonObject1.put("roes" , new JSONArray(services));
         }
         ServletUtils.isOk(jsonObject1 , services != null);

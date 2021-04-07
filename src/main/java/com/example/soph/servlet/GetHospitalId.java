@@ -29,6 +29,7 @@ public class GetHospitalId extends HttpServlet {
         ServletUtils.Setting(req,resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
         Hospital hospital = new HospitalDaoImpl().queryHospitalId(jsonObject.optString("hospitalId"));
+        hospital.setImgUrl(ServletUtils.getImageUrl(req , hospital.getImgUrl()));
         JSONObject jsonObject1 = new JSONObject(hospital);
         jsonObject1.remove("id");
         if (hospital != null){

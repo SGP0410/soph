@@ -22,6 +22,15 @@ public class News {
     private String userId;
     private String pressStatus;
     private String pressId;
+    private String theme;
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
 
     public String getId() {
         return id;

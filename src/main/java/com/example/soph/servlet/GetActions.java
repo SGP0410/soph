@@ -32,6 +32,9 @@ public class GetActions extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         if (actions != null){
             ServletUtils.isOk(jsonObject,true);
+            for (Actions a:actions) {
+                a.setImage(ServletUtils.getImageUrl(req , a.getImage()));
+            }
             JSONArray jsonArray = new JSONArray(actions);
             jsonObject.put("rows",jsonArray);
         }else {

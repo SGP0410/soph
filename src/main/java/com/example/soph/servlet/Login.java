@@ -31,7 +31,10 @@ public class Login extends HttpServlet {
         User user = new UserDaoImpl().queryUserByUsernamePassword(jsonObject.optString("username"),
                 jsonObject.optString("password"));
         JSONObject jsonObject1 = new JSONObject();
+        System.out.println(user);
         ServletUtils.isOk(jsonObject1 , user != null);
+        if (user != null)
+            jsonObject1.put("userId" , user.getUserId());
         response.getWriter().write(jsonObject1.toString());
     }
 }

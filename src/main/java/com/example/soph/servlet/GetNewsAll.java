@@ -24,6 +24,9 @@ public class GetNewsAll extends HttpServlet {
         JSONObject jsonObject1 = new JSONObject();
         if (news != null){
             jsonObject1.put("total" , news.size());
+            for (News n:news) {
+                n.setImgUrl(ServletUtils.getImageUrl(request , n.getImgUrl()));
+            }
             jsonObject1.put("rows" , new JSONArray(news));
         }
         ServletUtils.isOk(jsonObject1 , news != null);

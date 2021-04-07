@@ -34,6 +34,9 @@ public class GetHospital extends HttpServlet {
         if (hospitals != null){
             ServletUtils.isOk(jsonObject,true);
             jsonObject.put("total",hospitals.size());
+            for (Hospital h:hospitals) {
+                h.setImgUrl(ServletUtils.getImageUrl(req , h.getImgUrl()));
+            }
             JSONArray jsonArray = new JSONArray(hospitals);
             jsonObject.put("rowa",jsonArray);
         }else {

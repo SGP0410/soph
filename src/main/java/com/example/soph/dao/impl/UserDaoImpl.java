@@ -17,7 +17,7 @@ import java.util.List;
 public class UserDaoImpl extends BaseDao implements UserDao {
     @Override
     public User queryUserByUsernamePassword(String username, String password) {
-        String sql = "select * from user where username = ? , password = ?";
+        String sql = "select * from user where username = ? and password = ?";
         return queryForOne(User.class , sql , username , password);
     }
 
