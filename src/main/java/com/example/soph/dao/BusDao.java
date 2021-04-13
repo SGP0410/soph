@@ -13,6 +13,8 @@ import java.util.List;
 
 public interface BusDao {
 
+    public int setbus_order(String name,String tel,String userid,String status,String start,String end);
+
     public List<Bus_order> queryOrder(String userId);
 
     public List<Bus> queryList();
