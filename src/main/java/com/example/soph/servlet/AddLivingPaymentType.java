@@ -1,4 +1,6 @@
-package com.example.soph.servlet; /**
+package com.example.soph.servlet;
+
+/**
  * @author 孙国鹏
  * @date 2021/4/1 8:46
  */
@@ -7,9 +9,12 @@ import com.example.soph.dao.impl.LivingpaymentDaoImpl;
 import com.example.soph.utils.ServletUtils;
 import org.json.JSONObject;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "addLivingPaymentType", value = "/addLivingPaymentType")

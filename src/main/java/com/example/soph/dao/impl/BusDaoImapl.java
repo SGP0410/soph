@@ -16,9 +16,9 @@ public class BusDaoImapl extends BaseDao implements BusDao {
 
 
     @Override
-    public int setbus_order(String name, String tel, String userid, String status, String start, String end) {
-        String sql = "insert into bus_order(userName,userTel,userId,status,start ,end) values(?,?,?,?,?,?)";
-        return update(sql,name,tel,userid,status,start,end);
+    public int setbus_order(String name, String tel, String userid, String status, String start, String end , String time) {
+        String sql = "insert into bus_order(userName,userTel,userId,status,start ,end,createTime) values(?,?,?,?,?,?,?)";
+        return update(sql,name,tel,userid,status,start,end,time);
     }
 
     @Override

@@ -6,7 +6,6 @@ import com.example.soph.utils.ServletUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.json.Json;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

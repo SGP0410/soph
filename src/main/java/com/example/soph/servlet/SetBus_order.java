@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author 关鑫
@@ -38,7 +40,9 @@ public class SetBus_order extends HttpServlet {
                 jsonObject.optString("userid"),
                 jsonObject.optString("status"),
                 jsonObject.optString("start"),
-                jsonObject.optString("end"));
+                jsonObject.optString("end"),
+                new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+        );
 
         JSONObject jsonObject1 = new JSONObject();
         if (a == 1){
