@@ -5,6 +5,7 @@ package com.example.soph.servlet; /**
 
 import com.example.soph.dao.impl.NewsDaoImpl;
 import com.example.soph.pojo.NewsComment;
+import com.example.soph.utils.ExistToken;
 import com.example.soph.utils.ServletUtils;
 import com.google.gson.Gson;
 import org.json.JSONObject;
@@ -25,10 +26,17 @@ public class AddNewsComment extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtils.Setting(request, response);
         JSONObject jsonObject = ServletUtils.getJSONObject(request);
-        NewsComment newsComment = new Gson().fromJson(jsonObject.toString(), NewsComment.class);
-        int i = new NewsDaoImpl().addNewsComment(newsComment);
         JSONObject jsonObject1 = new JSONObject();
-        ServletUtils.isOk(jsonObject1 , i ==1);
+        String token  = request.getHeader("Authorization");
+        boolean isAble = new ExistToken().isVialable(token);
+        if (isAble) {
+            NewsComment newsComment = new Gson().fromJson(jsonObject.toString(), NewsComment.class);
+            int i = new NewsDaoImpl().addNewsComment(newsComment);
+            ServletUtils.isOk(jsonObject1, i == 1);
+        }else {
+            jsonObject1.put("msg","身份验证失败");
+            jsonObject1.put("code", 403);
+        }
         response.getWriter().write(jsonObject1.toString());
     }
 }

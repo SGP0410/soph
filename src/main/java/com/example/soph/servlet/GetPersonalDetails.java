@@ -5,6 +5,7 @@ package com.example.soph.servlet; /**
 
 import com.example.soph.dao.impl.UserDaoImpl;
 import com.example.soph.pojo.User;
+import com.example.soph.utils.ExistToken;
 import com.example.soph.utils.ServletUtils;
 import com.google.gson.Gson;
 import org.json.JSONArray;
@@ -21,19 +22,27 @@ public class GetPersonalDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtils.Setting(request, response);
-        JSONObject jsonObject = ServletUtils.getJSONObject(request);
         UserDaoImpl userDao = new UserDaoImpl();
-        User user = userDao.queryUserByUserId(jsonObject.optString("userId"));
+        String userId = request.getParameter("userId");
+        User user = userDao.queryUserByUserId(userId);
         JSONObject jsonObject1 = null;
-        if (user != null){
-            jsonObject1 = new JSONObject(user);
-            jsonObject1.remove("password");
-            jsonObject1.put("avatar" , ServletUtils.getImageUrl(request , user.getAvatar()));
-            jsonObject1.put("dept" , new JSONArray(userDao.queryUserDutyByUserId(user.getUserId())));
+        String token = request.getHeader("Authorization");
+        boolean isAble = new ExistToken().isVialable(token);
+        if (isAble) {
+            if (user != null) {
+                jsonObject1 = new JSONObject(user);
+                jsonObject1.remove("password");
+                jsonObject1.put("avatar", ServletUtils.getImageUrl(request, user.getAvatar()));
+                jsonObject1.put("dept", new JSONArray(userDao.queryUserDutyByUserId(user.getUserId())));
+            } else {
+                jsonObject1 = new JSONObject();
+            }
+            ServletUtils.isOk(jsonObject1, user != null);
         }else {
             jsonObject1 = new JSONObject();
+            jsonObject1.put("msg","身份验证失败");
+            jsonObject1.put("code", 403);
         }
-        ServletUtils.isOk(jsonObject1 , user != null);
         response.getWriter().write(jsonObject1.toString());
     }
 

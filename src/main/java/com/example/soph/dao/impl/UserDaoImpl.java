@@ -45,17 +45,32 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     @Override
     public int updateUser(User user) {
-        String sql = "update user set idCard = ? , username = ? , nickName = ? , email = ? ," +
-                "phonenumber = ? , sex = ? , avatar = ? , remark = ? where userId = ?";
-        return update(sql , user.getIdCard() ,
-                user.getUsername() ,
-                user.getNickName() ,
-                user.getEmail() ,
-                user.getPhonenumber() ,
-                user.getSex() ,
-                user.getAvatar() ,
-                user.getRemark() ,
-                user.getUserId());
+        String sql = "";
+        if  (user.getAvatar().equals("")) {
+             sql = "update user set idCard = ? , username = ? , nickName = ? , email = ? ," +
+                    "phonenumber = ? , sex = ?  , remark = ? where userId = ?";
+            return update(sql , user.getIdCard() ,
+                    user.getUsername() ,
+                    user.getNickName() ,
+                    user.getEmail() ,
+                    user.getPhonenumber() ,
+                    user.getSex() ,
+                    user.getRemark() ,
+                    user.getUserId());
+        }else {
+             sql = "update user set idCard = ? , username = ? , nickName = ? , email = ? ," +
+                    "phonenumber = ? , sex = ? , avatar = ? , remark = ? where userId = ?";
+            return update(sql , user.getIdCard() ,
+                    user.getUsername() ,
+                    user.getNickName() ,
+                    user.getEmail() ,
+                    user.getPhonenumber() ,
+                    user.getSex() ,
+                    user.getAvatar() ,
+                    user.getRemark() ,
+                    user.getUserId());
+        }
+
     }
 
     @Override
