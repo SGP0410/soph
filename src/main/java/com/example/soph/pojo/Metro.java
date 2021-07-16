@@ -20,6 +20,8 @@ public class Metro {
      * reachTime
      * currentName
      * img
+     * startTime
+     * endTime
      */
 
     private String id;
@@ -35,6 +37,29 @@ public class Metro {
     private String reachTime;
     private String currentName;
     private String img;
+    private String startTime;
+    private String endTime;
+
+    @Override
+    public String toString() {
+        return "Metro{" +
+                "id='" + id + '\'' +
+                ", searchValue='" + searchValue + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", remark='" + remark + '\'' +
+                ", lineId='" + lineId + '\'' +
+                ", lineName='" + lineName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", reachTime='" + reachTime + '\'' +
+                ", currentName='" + currentName + '\'' +
+                ", img='" + img + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                '}';
+    }
 
     public String getId() {
         return id;
@@ -140,22 +165,19 @@ public class Metro {
         this.img = img;
     }
 
-    @Override
-    public String toString() {
-        return "Metro{" +
-                "id='" + id + '\'' +
-                ", searchValue='" + searchValue + '\'' +
-                ", createBy='" + createBy + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime='" + updateTime + '\'' +
-                ", remark='" + remark + '\'' +
-                ", lineId='" + lineId + '\'' +
-                ", lineName='" + lineName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", reachTime='" + reachTime + '\'' +
-                ", currentName='" + currentName + '\'' +
-                ", img='" + img + '\'' +
-                '}';
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 }

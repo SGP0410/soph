@@ -29,6 +29,7 @@ public class GetMetroPathByCurrentName extends HttpServlet {
         for (MetroMsg m:metroMsgList) {
             metroList.add(metroDao.queryMetroByLineId(m.getLineId()));
         }
+
         JSONObject jsonObject1 = new JSONObject();
         if (metroList.size() > 0){
             jsonObject1.put("total" , metroList.size());

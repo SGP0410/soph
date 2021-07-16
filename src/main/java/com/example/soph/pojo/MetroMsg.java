@@ -16,6 +16,8 @@ public class MetroMsg {
      * name
      * seq
      * lineId
+     * startTime
+     * endTime
      */
 
     private String id;
@@ -28,6 +30,26 @@ public class MetroMsg {
     private String name;
     private String seq;
     private String lineId;
+    private String startTime;
+    private String endTime;
+
+    @Override
+    public String toString() {
+        return "MetroMsg{" +
+                "id='" + id + '\'' +
+                ", searchValue='" + searchValue + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", remark='" + remark + '\'' +
+                ", name='" + name + '\'' +
+                ", seq='" + seq + '\'' +
+                ", lineId='" + lineId + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                '}';
+    }
 
     public String getId() {
         return id;
@@ -109,19 +131,19 @@ public class MetroMsg {
         this.lineId = lineId;
     }
 
-    @Override
-    public String toString() {
-        return "MetroMsg{" +
-                "id='" + id + '\'' +
-                ", searchValue='" + searchValue + '\'' +
-                ", createBy='" + createBy + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime='" + updateTime + '\'' +
-                ", remark='" + remark + '\'' +
-                ", name='" + name + '\'' +
-                ", seq='" + seq + '\'' +
-                ", lineId='" + lineId + '\'' +
-                '}';
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 }

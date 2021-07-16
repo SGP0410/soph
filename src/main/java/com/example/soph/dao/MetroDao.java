@@ -1,7 +1,6 @@
 package com.example.soph.dao;
 
-import com.example.soph.pojo.Metro;
-import com.example.soph.pojo.MetroMsg;
+import com.example.soph.pojo.*;
 
 import java.util.List;
 
@@ -10,6 +9,32 @@ import java.util.List;
  * @date 2021/3/31 17:14
  */
 public interface MetroDao {
+
+
+    /**
+     *失物招领
+     * @return
+     */
+    public List<Metrofound> query_found();
+
+    /**
+     * 查询主题
+     * @return
+     */
+    public List<Metro_theme> query_them();
+
+    /**
+     * number 1 = 乘车须知 2 = 运营公告
+     * @param number
+     * @return
+     */
+    public List<Metro_notice> queryNumber(String number);
+
+    /**
+     * 查询所有数据
+     * @return
+     */
+    public List<Metro> query();
 
     /**
      * 根据站点名查询站点信息
