@@ -18,6 +18,11 @@ import java.util.List;
  * @author 关鑫
  * @date 2021/3/31 20:43 星期三
  */
+
+
+/**
+ * 通过userid查询
+ */
 @WebServlet(name = "getbusorder",value = "/getbusorder")
 public class GetBus_order extends HttpServlet {
 
