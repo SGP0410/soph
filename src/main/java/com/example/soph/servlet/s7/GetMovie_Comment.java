@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 查询所有评论
  */
-@WebServlet(name = "GetMovie_Comment",value = "/GetMovie_Comment")
+@WebServlet(name = "GetMovieComment",value = "/GetMovieComment")
 public class GetMovie_Comment extends HttpServlet {
 
     @Override

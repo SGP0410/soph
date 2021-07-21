@@ -1,6 +1,7 @@
 package com.example.soph.dao;
 
 import com.example.soph.pojo.Parking;
+import com.example.soph.pojo.Parking_User;
 import com.example.soph.pojo.Parkingrecord;
 
 import java.util.List;
@@ -43,5 +44,11 @@ public interface ParkingDao {
      * @return
      */
     public List<Parkingrecord> queryParkingrecordByOutTime(String entryTime);
+
+    /**
+     * 获取车主和车牌
+     * @return
+     */
+    public List<Parking_User> queryParkingUser();
 
 }

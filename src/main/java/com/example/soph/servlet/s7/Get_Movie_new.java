@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 获取所有新闻信息
  */
-@WebServlet(name = "Get_Movie_new",value = "/Get_Movie_new")
+@WebServlet(name = "GetMovieNew",value = "/GetMovieNew")
 public class Get_Movie_new extends HttpServlet {
 
     @Override

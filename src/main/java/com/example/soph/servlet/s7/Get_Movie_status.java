@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * 查询想看和看过 1看过 2 想看
  */
-@WebServlet(name = "Get_Movie_status",value = "/Get_Movie_status")
+@WebServlet(name = "GetMovieStatus",value = "/GetMovieStatus")
 public class Get_Movie_status extends HttpServlet {
 
     @Override

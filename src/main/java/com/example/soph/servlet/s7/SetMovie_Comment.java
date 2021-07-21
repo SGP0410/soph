@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * 添加评论
  */
-@WebServlet(name = "SetMovie_Comment",value = "/SetMovie_Comment")
+@WebServlet(name = "SetMovieComment",value = "/SetMovieComment")
 public class SetMovie_Comment extends HttpServlet {
 
     @Override

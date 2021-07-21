@@ -2,6 +2,7 @@ package com.example.soph.dao.impl;
 
 import com.example.soph.dao.ParkingDao;
 import com.example.soph.pojo.Parking;
+import com.example.soph.pojo.Parking_User;
 import com.example.soph.pojo.Parkingrecord;
 
 import java.util.List;
@@ -39,5 +40,11 @@ public class ParkingDaoImpl extends BaseDao implements ParkingDao {
     public List<Parkingrecord> queryParkingrecordByOutTime(String outTime) {
         String sql = "select * from parkingrecord where outTime > ?";
         return queryForList(Parkingrecord.class , sql , outTime);
+    }
+
+    @Override
+    public List<Parking_User> queryParkingUser() {
+        String sql = "select * from parking_user";
+        return queryForList(Parking_User.class,sql);
     }
 }

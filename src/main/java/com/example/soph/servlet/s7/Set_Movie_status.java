@@ -20,7 +20,7 @@ import java.io.IOException;
 /**
  * 添加想看和看过
  */
-@WebServlet(name = "Set_Movie_status",value = "/Set_Movie_status")
+@WebServlet(name = "SetMovieStatus",value = "/SetMovieStatus")
 public class Set_Movie_status extends HttpServlet {
 
     @Override

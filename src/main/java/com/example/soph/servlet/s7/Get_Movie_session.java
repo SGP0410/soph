@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * 通过影片id查询播放信息
  */
-@WebServlet(name = "Get_Movie_session",value = "/Get_Movie_session")
+@WebServlet(name = "GetMovieSession",value = "/GetMovieSession")
 public class Get_Movie_session extends HttpServlet {
 
     @Override
