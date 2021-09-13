@@ -34,9 +34,6 @@ public class GetService_center extends HttpServlet {
         }
         ServletUtils.isOk(jsonObject,service_centers != null);
         resp.getWriter().write(jsonObject.toString());
-
-
-
     }
 
     @Override

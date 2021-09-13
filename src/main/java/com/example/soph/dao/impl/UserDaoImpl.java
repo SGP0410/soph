@@ -22,6 +22,12 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
+    public List<User> queryAll() {
+        String sql = "select * from user";
+        return queryForList(User.class,sql);
+    }
+
+    @Override
     public int addUser(User user) {
         String sql = "insert into user(username,nickName,phonenumber,sex,password) values(?,?,?,?,?)";
         return update(sql , user.getUsername(),

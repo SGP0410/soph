@@ -57,4 +57,17 @@ public interface MetroDao {
      */
     public List<MetroMsg> queryMetroMsgByLineId(String lineId);
 
+    /**
+     * 获取中英文地图
+     * @return
+     */
+    public List<Metro_language> queryMetro_language();
+
+
+    /**
+     * 图例
+     * @return
+     */
+    public List<Metro_legend> queryMetroLegend();
+
 }

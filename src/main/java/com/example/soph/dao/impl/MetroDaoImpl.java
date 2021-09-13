@@ -15,42 +15,54 @@ public class MetroDaoImpl extends BaseDao implements MetroDao {
     @Override
     public List<Metrofound> query_found() {
         String sql = "select * from metrofound";
-        return queryForList(Metrofound.class,sql);
+        return queryForList(Metrofound.class, sql);
     }
 
     @Override
     public List<Metro_theme> query_them() {
         String sql = "select * from metro_theme";
-        return queryForList(Metro_theme.class,sql);
+        return queryForList(Metro_theme.class, sql);
     }
 
     @Override
     public List<Metro_notice> queryNumber(String number) {
         String sql = "select * from metro_notice where number = ?";
-        return queryForList(Metro_notice.class,sql,number);
+        return queryForList(Metro_notice.class, sql, number);
     }
 
     @Override
     public List<Metro> query() {
         String sql = "select * from metro";
-        return queryForList(Metro.class,sql);
+        return queryForList(Metro.class, sql);
     }
 
     @Override
     public List<MetroMsg> queryMetroMsgByName(String name) {
         String sql = "select * from metro_msg where name = ?";
-        return queryForList(MetroMsg.class , sql , name);
+        return queryForList(MetroMsg.class, sql, name);
     }
 
     @Override
     public Metro queryMetroByLineId(String lineId) {
         String sql = "select * from metro where lineId = ?";
-        return queryForOne(Metro.class , sql , lineId);
+        return queryForOne(Metro.class, sql, lineId);
     }
 
     @Override
     public List<MetroMsg> queryMetroMsgByLineId(String lineId) {
         String sql = "select * from metro_msg where lineId = ?";
-        return queryForList(MetroMsg.class , sql , lineId);
+        return queryForList(MetroMsg.class, sql, lineId);
+    }
+
+    @Override
+    public List<Metro_language> queryMetro_language() {
+        String sql = "select * from metro_language";
+        return queryForList(Metro_language.class, sql);
+    }
+
+    @Override
+    public List<Metro_legend> queryMetroLegend() {
+        String sql = "select * from metro_legend";
+        return queryForList(Metro_legend.class,sql);
     }
 }

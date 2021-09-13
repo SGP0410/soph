@@ -22,6 +22,8 @@ public class GetMetrodetailsByLineId extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletUtils.Setting(request, response);
         JSONObject jsonObject = ServletUtils.getJSONObject(request);
+        String s = jsonObject.optString("lineId");
+        System.out.println(s);
         MetroDaoImpl metroDao = new MetroDaoImpl();
         Metro metro = metroDao.queryMetroByLineId(jsonObject.optString("lineId"));
         List<MetroMsg> metroMsgs = metroDao.queryMetroMsgByLineId(jsonObject.optString("lineId"));

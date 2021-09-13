@@ -21,6 +21,8 @@ public interface UserDao {
      */
     public User queryUserByUsernamePassword(String username , String password);
 
+    public List<User> queryAll();
+
     /**
      * 添加用户
      * @param user

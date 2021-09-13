@@ -5,6 +5,7 @@ package com.example.soph.pojo;
  * @date 2021/3/31 17:21
  */
 public class MetroMsg {
+
     /**
      * id
      * searchValue

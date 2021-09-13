@@ -34,9 +34,6 @@ public class GetGasRecording extends HttpServlet {
             jsonObject.put("total",gasInformations.size());
             jsonObject.put("rows",new JSONArray(gasInformations));
         }
-
-
-
     }
 
     @Override
