@@ -17,7 +17,6 @@ public class Hospital_doctors {
      * tag
      */
 
-
     private String doctorId;
     private String hospitalId;
     private String deptId;

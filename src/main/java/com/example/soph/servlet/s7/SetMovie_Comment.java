@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author 关鑫
@@ -29,23 +30,44 @@ public class SetMovie_Comment extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
+
+/*        List<Movie_comment> movieid = new Movie_infoDaoImpl().query_Movieid(jsonObject.optString("Movieid"));
+        String userId = jsonObject.optString("userId");
+        for (Movie_comment movie_comment : movieid) {
+            if (userId.equals(movie_comment.getUserId())) {
+                JSONObject jsonObject1 = new JSONObject();
+                jsonObject1.put("msg", "重复提交");
+                jsonObject1.put("code", "200");
+                resp.getWriter().write(jsonObject1.toString());
+                return;
+            }
+        }*/
+
+        User user = new UserDaoImpl().queryUserByUserId(jsonObject.optString("userId"));
+
+        String s = (int) Math.floor((Math.random()*10000)+1)+"";
+
         int i = new Movie_infoDaoImpl().add_comment(new Movie_comment(
                 jsonObject.optString("id"),
                 jsonObject.optString("Movieid"),
                 jsonObject.optString("mark"),
-                jsonObject.optString("conmentTime"),
                 jsonObject.optString("conment"),
-                jsonObject.optString("username")
+                jsonObject.optString("conmentTime"),
+                jsonObject.optString("userId"),
+                user.getAvatar(),
+                user.getUsername(),
+                s
         ));
-        JSONObject jsonObject1 = new JSONObject();
-        ServletUtils.isOk(jsonObject1 , i == 1);
-        resp.getWriter().write(jsonObject1.toString());
 
-
+        ServletUtils.isOk(jsonObject , i == 1);
+        resp.getWriter().write(jsonObject.toString());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
     }
+
+
+
 }

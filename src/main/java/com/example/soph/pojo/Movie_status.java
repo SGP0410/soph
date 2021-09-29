@@ -17,7 +17,8 @@ public class Movie_status {
     private String id;
     private String movieid;
     private String status;
-    private String username;
+    private String userid;
     private String statusmsg;
+    private String imag;
 
 }

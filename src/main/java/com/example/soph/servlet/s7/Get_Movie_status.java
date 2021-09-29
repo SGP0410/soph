@@ -32,6 +32,9 @@ public class Get_Movie_status extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         if (movie_statuses != null){
             jsonObject.put("total",movie_statuses.size());
+            for (Movie_status movie_status : movie_statuses) {
+                movie_status.setImag(ServletUtils.getImageUrl(req,movie_status.getImag()));
+            }
             jsonObject.put("rows",new JSONArray(movie_statuses));
         }
         ServletUtils.isOk(jsonObject , movie_statuses != null);

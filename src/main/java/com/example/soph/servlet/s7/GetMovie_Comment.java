@@ -29,7 +29,13 @@ public class GetMovie_Comment extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
-        List<Movie_comment> movie_comments = new Movie_infoDaoImpl().query_comment();
+        JSONObject jsonObject1 = ServletUtils.getJSONObject(req);
+
+        List<Movie_comment> movie_comments = new Movie_infoDaoImpl().query_comment(jsonObject1.optString("Movieid"));
+        for (Movie_comment movie_comment : movie_comments) {
+            movie_comment.setImage(ServletUtils.getImageUrl(req,movie_comment.getImage()));
+        }
+
         JSONObject jsonObject = new JSONObject();
         if (movie_comments != null){
             jsonObject.put("total",movie_comments.size());

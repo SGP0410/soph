@@ -44,7 +44,6 @@ public class Get_Movie_add extends HttpServlet {
         }
         ServletUtils.isOk(jsonObject,adds != null);
         resp.getWriter().write(jsonObject.toString());
-
     }
 
     @Override

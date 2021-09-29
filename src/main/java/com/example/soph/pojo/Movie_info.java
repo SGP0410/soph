@@ -27,5 +27,6 @@ public class Movie_info {
     private String MovieType;
     private String movieDesc;
     private String thumbup;
+    private String http;
 
 }

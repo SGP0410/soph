@@ -32,7 +32,6 @@ public class GetHospital_idcard extends HttpServlet {
         super.doPost(req, resp);
     }
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);

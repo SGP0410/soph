@@ -20,6 +20,9 @@ import java.util.List;
 
 @WebServlet(name = "login", value = "/login")
 public class Login extends HttpServlet {
+
+    private String token;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -27,31 +30,30 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         ServletUtils.Setting(request, response);
         JSONObject jsonObject = ServletUtils.getJSONObject(request);
         User user = new UserDaoImpl().queryUserByUsernamePassword(jsonObject.optString("username"),
                 jsonObject.optString("password"));
         JSONObject jsonObject1 = new JSONObject();
-        System.out.println(user);
+        if (user != null) {
+            token = UtilToken.generateValue(
+                    System.currentTimeMillis() + "---" + user.getUsername() + "---" + System.currentTimeMillis() +
+                            "---" + user.getPassword() + System.currentTimeMillis());
+        }
 
-
-
-        String token = UtilToken.generateValue(
-                System.currentTimeMillis() + "---" + user.getUsername() + "---" + System.currentTimeMillis() +
-                        "---" + user.getPassword()+ System.currentTimeMillis());
-
-
-        ServletUtils.isOk(jsonObject1 , user != null);
         if (user != null) {
             jsonObject1.put("userId", user.getUserId());
-            jsonObject1.put("token",token);
+            jsonObject1.put("token", token);
             int a = new TokenDao().addToken(token);
             List<MyToken> myTokens = new TokenDao().selectToken();
             if (myTokens.size() > 20) {
-               new TokenDao().deleteToken();
+                new TokenDao().deleteToken();
             }
         }
+
+        ServletUtils.isOk(jsonObject1, user != null);
+
         response.getWriter().write(jsonObject1.toString());
+
     }
 }

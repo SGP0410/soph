@@ -24,5 +24,7 @@ public class Movie_session {
     private String MovieType;
     private String play_type;
     private String pricing;
+    private String feature;
+    private String address;
 
 }

@@ -19,6 +19,12 @@ public class Movie_comment {
     private String mark;
     private String conment;
     private String conmentTime;
+    private String userId;
+    private String image;
     private String username;
+    private String dianzan;
+
+
+
 
 }

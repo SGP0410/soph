@@ -11,6 +11,14 @@ import java.util.List;
 
 public interface Movie_infoDao {
 
+    public int addMovie_seat(Movie_seat movie_seat);
+
+    public List<Movie_seat> query_movie_seat(String seatNumber);
+
+    public List<Movie_session> query_title_name(String MovieName);
+
+    public List<Movie_session> query_title_name(String Movietitle,String MovieName);
+
     /**
      * @return  查询所有影片信息
      */
@@ -20,7 +28,7 @@ public interface Movie_infoDao {
      * 查询所有评论
      * @return
      */
-    public List<Movie_comment> query_comment();
+    public List<Movie_comment> query_comment(String Movieid);
 
 
     /**
@@ -36,6 +44,9 @@ public interface Movie_infoDao {
      * @return
      */
     public List<Movie_status> query_status();
+
+
+    public List<Movie_status> query_userid(String userid);
 
     /**
      * 添加想看和看过
@@ -63,6 +74,8 @@ public interface Movie_infoDao {
      * @return
      */
     public List<Movie_add> query_add();
+
+    public List<Movie_comment> query_Movieid(String movieid);
 
 
 }

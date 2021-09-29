@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,21 +20,21 @@ import java.util.List;
  * @date 2021/3/31 19:54 星期三
  */
 
-@WebServlet(name = "getgospital_doct",value = "/getgospital_doct")
+@WebServlet(name = "getgospital_doct", value = "/getgospital_doct")
 public class GetHospital_doct extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtils.Setting(req,resp);
+        ServletUtils.Setting(req, resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
         List<Hospital_doctors> doctors = new HospitalDaoImpl().queryHosp_doctors(jsonObject.optString("hospitalId"));
         JSONObject jsonObject1 = new JSONObject();
-        if (doctors != null){
-            ServletUtils.isOk(jsonObject1,true);
+        if (doctors != null) {
+            ServletUtils.isOk(jsonObject1, true);
             JSONArray jsonArray = new JSONArray(doctors);
-            jsonObject1.put("rows",jsonArray);
-        }else {
-            ServletUtils.isOk(jsonObject1,false);
+            jsonObject1.put("rows", jsonArray);
+        } else {
+            ServletUtils.isOk(jsonObject1, false);
         }
         resp.getWriter().write(jsonObject1.toString());
 
