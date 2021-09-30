@@ -36,7 +36,7 @@ public class Hospital_type {
     private String did;
     private String categoryName;
     private String money;
-    private String desc;
+    private String descs;
     private String tag;
     private String hospitalId;
 
@@ -54,7 +54,7 @@ public class Hospital_type {
         this.did = did;
         this.categoryName = categoryName;
         this.money = money;
-        this.desc = desc;
+        this.descs = desc;
         this.tag = tag;
         this.hospitalId = hospitalId;
     }
@@ -72,7 +72,7 @@ public class Hospital_type {
                 ", did='" + did + '\'' +
                 ", categoryName='" + categoryName + '\'' +
                 ", money='" + money + '\'' +
-                ", desc='" + desc + '\'' +
+                ", desc='" + descs + '\'' +
                 ", tag='" + tag + '\'' +
                 ", hospitalId='" + hospitalId + '\'' +
                 '}';
@@ -158,12 +158,12 @@ public class Hospital_type {
         this.money = money;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescs() {
+        return descs;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescs(String descs) {
+        this.descs = descs;
     }
 
     public String getTag() {

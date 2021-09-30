@@ -22,22 +22,24 @@ import java.util.List;
 /**
  * 加油记录
  */
-@WebServlet(name = "GetGasRecording",value = "/GetGasRecording")
+@WebServlet(name = "GetGasRecording", value = "/GetGasRecording")
 public class GetGasRecording extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtils.Setting(req,resp);
+        ServletUtils.Setting(req, resp);
         List<GasInformation> gasInformations = new GasInformationDaoImpl().queryGasInformation();
         JSONObject jsonObject = new JSONObject();
-        if (gasInformations != null){
-            jsonObject.put("total",gasInformations.size());
-            jsonObject.put("rows",new JSONArray(gasInformations));
+        if (gasInformations != null) {
+            jsonObject.put("total", gasInformations.size());
+            jsonObject.put("rows", new JSONArray(gasInformations));
         }
+        ServletUtils.isOk(jsonObject, gasInformations != null);
+        resp.getWriter().write(jsonObject.toString());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 }

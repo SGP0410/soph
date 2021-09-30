@@ -21,7 +21,7 @@ public class Hospital_doctors {
     private String hospitalId;
     private String deptId;
     private String doctorname;
-    private String desc;
+    private String descs;
     private String tag;
 
     public Hospital_doctors() {
@@ -32,7 +32,7 @@ public class Hospital_doctors {
         this.hospitalId = hospitalId;
         this.deptId = deptId;
         this.doctorname = doctorname;
-        this.desc = desc;
+        this.descs = desc;
         this.tag = tag;
     }
 
@@ -43,7 +43,7 @@ public class Hospital_doctors {
                 ", hospitalId='" + hospitalId + '\'' +
                 ", deptId='" + deptId + '\'' +
                 ", doctorname='" + doctorname + '\'' +
-                ", desc='" + desc + '\'' +
+                ", desc='" + descs + '\'' +
                 ", tag='" + tag + '\'' +
                 '}';
     }
@@ -81,11 +81,11 @@ public class Hospital_doctors {
     }
 
     public String getDesc() {
-        return desc;
+        return descs;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.descs = desc;
     }
 
     public String getTag() {

@@ -4,6 +4,7 @@ import com.example.soph.dao.GasInformationDao;
 import com.example.soph.dao.impl.GasInformationDaoImpl;
 import com.example.soph.pojo.GasInformation;
 import com.example.soph.utils.ServletUtils;
+import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

@@ -44,8 +44,6 @@ public class GetMovie_Comment extends HttpServlet {
         ServletUtils.isOk(jsonObject,movie_comments != null);
         resp.getWriter().write(jsonObject.toString());
 
-
-
     }
 
 

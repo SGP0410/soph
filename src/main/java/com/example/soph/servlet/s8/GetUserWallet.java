@@ -31,17 +31,18 @@ public class GetUserWallet extends HttpServlet {
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
         String userid = jsonObject.optString("userid");
         System.out.println(userid);
+
         List<UserRechargeRecord> userRechargeRecords = new UserWalletDaoImpl().query_money(userid);
         List<UserIntegral> userIntegrals = new UserWalletDaoImpl().query_integral(userid);
         int jie = 0;
         int jifen = 0;
         for (UserIntegral userIntegral : userIntegrals) {
-            if (userIntegral.getWay().equals("1")){
+            if ("1".equals(userIntegral.getWay())){
                 jifen += userIntegral.getIntegral();
             }
         }
         for (UserIntegral userIntegral : userIntegrals) {
-            if (userIntegral.getWay().equals("1")){
+            if ("1".equals(userIntegral.getWay())){
             }else {
                 jifen -= userIntegral.getIntegral();
             }

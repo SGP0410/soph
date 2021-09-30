@@ -16,10 +16,10 @@ public class Movie_new {
 
     private String id;
     private String title;
-    private String time;
-    private String like;
+    private String time1;
+    private String like1;
     private String msg;
     private String img;
-    private String Movieid;
+    private String movieid;
 
 }
