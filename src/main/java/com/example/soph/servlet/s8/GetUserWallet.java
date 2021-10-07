@@ -66,6 +66,7 @@ public class GetUserWallet extends HttpServlet {
         if (userRechargeRecords != null){
             jsonObject1.put("money",jie+"");
             jsonObject1.put("integral",jifen+"");
+            jsonObject1.put("rows",userIntegrals);
         }
         ServletUtils.isOk(jsonObject1,userRechargeRecords!=null);
         resp.getWriter().write(jsonObject1.toString());

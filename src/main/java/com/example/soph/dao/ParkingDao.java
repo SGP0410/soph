@@ -2,6 +2,7 @@ package com.example.soph.dao;
 
 import com.example.soph.pojo.Parking;
 import com.example.soph.pojo.Parking_User;
+import com.example.soph.pojo.Parking_comeon;
 import com.example.soph.pojo.Parkingrecord;
 
 import java.util.List;
@@ -12,14 +13,22 @@ import java.util.List;
  */
 public interface ParkingDao {
 
+    public List<Parking_comeon> queryComeonall();
+
+    public int queryComeon(String oilVolume, String money, String mileage, String oilPrice);
+
+    public List<Parkingrecord> queryPlate(String plate);
+
     /**
      * 获取停车场列表
+     *
      * @return
      */
     public List<Parking> queryParkingAll();
 
     /**
      * 根据停车场id查询停车场详情
+     *
      * @param parkingid
      * @return
      */
@@ -27,12 +36,14 @@ public interface ParkingDao {
 
     /**
      * 获取全部停车记录
+     *
      * @return
      */
     public List<Parkingrecord> queryParkingrecordAll();
 
     /**
      * 根据入场时间查询停车记录
+     *
      * @param entryTime
      * @return
      */
@@ -40,6 +51,7 @@ public interface ParkingDao {
 
     /**
      * 根据出场时间查询停车记录
+     *
      * @param entryTime
      * @return
      */
@@ -47,6 +59,7 @@ public interface ParkingDao {
 
     /**
      * 获取车主和车牌
+     *
      * @return
      */
     public List<Parking_User> queryParkingUser();

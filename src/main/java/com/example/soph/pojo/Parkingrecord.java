@@ -32,6 +32,15 @@ public class Parkingrecord {
     private String plateNumber;
     private String monetary;
     private String parkName;
+    private String number;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public String getId() {
         return id;

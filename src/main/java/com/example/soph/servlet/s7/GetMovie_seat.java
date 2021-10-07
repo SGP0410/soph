@@ -35,7 +35,6 @@ public class GetMovie_seat extends HttpServlet {
         }
         ServletUtils.isOk(jsonObject1, movie_seats != null);
         resp.getWriter().write(jsonObject1.toString());
-
     }
 
     @Override
