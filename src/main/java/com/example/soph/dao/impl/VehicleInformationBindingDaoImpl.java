@@ -12,6 +12,64 @@ import java.util.List;
 
 public class VehicleInformationBindingDaoImpl extends BaseDao implements VehicleInformationBindingDao {
 
+    @Override
+    public WrittenJudgement querWritten(String number) {
+        String sql = "select * from written_judgement where number = ?";
+        return queryForOne(WrittenJudgement.class,sql,number);
+    }
+
+    @Override
+    public List<WrittenJudgement> query_LicenseNumber(String LicenseNumber) {
+        String sql = "SELECT * FROM written_judgement where LicenseNumber = ?";
+        return queryForList(WrittenJudgement.class,sql,LicenseNumber);
+    }
+
+    @Override
+    public int insertDriver(Driverlicense date) {
+        String sql = "insert into driverlicense(userId,LicenseNumber,validPeriod,idCard) values(?,?,?,?)";
+        return update(sql,
+                date.getUserId(),
+                date.getLicenseNumber(),
+                date.getValidPeriod(),
+                date.getCarid()
+        );
+    }
+
+    @Override
+    public List<Driverlicense> queryDriver(String userId) {
+        String sql = "select * from driverlicense where userId = ?";
+        return queryForList(Driverlicense.class,sql,userId);
+    }
+
+    @Override
+    public List<Coupon> queryCouponAll() {
+        String sql = "SELECT * FROM coupon";
+        return queryForList(Coupon.class,sql);
+    }
+
+    @Override
+    public int updateWitten(WrittenJudgement writtenJudgements) {
+        String sql = "update written_judgement set violationDate = ? where id = ?";
+        return update(sql ,writtenJudgements.getViolationDate(),writtenJudgements.getId());
+    }
+
+    @Override
+    public List<ViolationCancellation> queryCancellationAll() {
+        String sql = "SELECT * FROM violation_cancellation";
+        return queryForList(ViolationCancellation.class,sql);
+    }
+
+    @Override
+    public int addViolation_cancellation(ViolationCancellation violation) {
+        String sql = "insert into violation_cancellation(cph,number,types,behavior,address) values(?,?,?,?,?)";
+        return update(sql,
+                violation.getCph(),
+                violation.getNumber(),
+                violation.getTypes(),
+                violation.getBehavior(),
+                violation.getAddress());
+    }
+
     /**
      * @param userid 用户id
      * @return

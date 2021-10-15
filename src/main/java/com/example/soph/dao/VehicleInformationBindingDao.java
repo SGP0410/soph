@@ -11,6 +11,22 @@ import java.util.List;
 
 public interface VehicleInformationBindingDao {
 
+    public WrittenJudgement querWritten(String number);
+
+    public List<WrittenJudgement> query_LicenseNumber(String LicenseNumber);
+
+    public int insertDriver(Driverlicense date);
+
+    public List<Driverlicense> queryDriver(String userId);
+
+    public List<Coupon> queryCouponAll();
+
+    public int updateWitten(WrittenJudgement writtenJudgements);
+
+    public List<ViolationCancellation> queryCancellationAll();
+
+    public int addViolation_cancellation(ViolationCancellation violation);
+
     /**
      * 根据userid查询用户绑定的信息
      * @param userid 用户id

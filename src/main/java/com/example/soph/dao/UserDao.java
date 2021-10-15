@@ -51,6 +51,8 @@ public interface UserDao {
      */
     public int updateUser(User user);
 
+    public int updateSalt(String userid, String salt);
+
     /**
      * 根据用户id用户昵名改密码
      * @param user

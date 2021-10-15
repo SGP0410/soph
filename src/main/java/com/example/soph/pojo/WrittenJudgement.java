@@ -19,7 +19,7 @@ public class WrittenJudgement {
     private String number;
     private String userName;
     private String jszFileNumber;
-    private String jszNumber;
+    private String LicenseNumber;
     private String quasiDrivingType;
     private String tel;
     private String cph;
@@ -33,5 +33,8 @@ public class WrittenJudgement {
     private String punishOffice;
     private String punishDate;
 
-
+    public WrittenJudgement(String id, String violationDate) {
+        this.id = id;
+        this.violationDate = violationDate;
+    }
 }

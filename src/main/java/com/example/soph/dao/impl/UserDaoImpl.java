@@ -80,6 +80,12 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
+    public int updateSalt(String userid, String salt) {
+        String sql = "update user set salt = ? where userId = ?";
+        return update(sql,salt,userid);
+    }
+
+    @Override
     public int updatePassword(User user) {
         System.out.println(user.toString());
         String sql = "update user set password = ? where userId = ? and username = ?";

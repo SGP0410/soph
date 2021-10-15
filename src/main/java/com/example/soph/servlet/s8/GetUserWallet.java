@@ -49,7 +49,7 @@ public class GetUserWallet extends HttpServlet {
         }
 
         for (UserRechargeRecord userRechargeRecord : userRechargeRecords) {
-            if (userRechargeRecord.getWay().equals("1")){
+            if (userRechargeRecord.getWay().equals("1") ){
                 jie += userRechargeRecord.getRecharge_amount();
             }
         }

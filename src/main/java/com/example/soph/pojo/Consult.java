@@ -19,4 +19,5 @@ public class Consult {
     private String title;
     private String releaseDate;
     private String content;
+
 }

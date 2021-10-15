@@ -41,9 +41,7 @@ public class GetUsername extends HttpServlet {
             ServletUtils.isOk(jsonObject1,false);
         }
         resp.getWriter().write(jsonObject1.toString());
-
     }
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

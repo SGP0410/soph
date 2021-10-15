@@ -2,6 +2,7 @@ package com.example.soph.servlet.s9;
 
 import com.example.soph.dao.impl.VehicleInformationBindingDaoImpl;
 import com.example.soph.pojo.VehicleInformationBinding;
+import com.example.soph.pojo.ViolationCancellation;
 import com.example.soph.utils.ServletUtils;
 import org.json.JSONObject;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author 关鑫
@@ -23,11 +25,11 @@ import java.io.IOException;
 @WebServlet(name = "SetVehicleInformationBinding", value = "/SetVehicleInformationBinding")
 public class SetVehicleInformationBinding extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req, resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
+
         int a = new VehicleInformationBindingDaoImpl().setVehicleInformationBinding(new VehicleInformationBinding(
                 jsonObject.optString("id"),
                 jsonObject.optString("userId"),
